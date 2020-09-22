@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+      //IIFE
+      // (function(){
+      //   let color = "green";
+      //
+      //   function printColor(){
+      //     console.log(color);
+      //   }
+      //
+      //   printColor();
+      // })();
+
+      //Funciones que regresan Funciones
+      // function makeColorPrinter(color){
+      //   let colorMessage = `The color is ${color}`;
+      //   return function () {
+      //     console.log(colorMessage);
+      //   }
+      // }
+      //
+      // let greenColorPrinter = makeColorPrinter("Green");
+      // console.log(greenColorPrinter());
+
+      //Variables 'privadas'
+      function makeCounter(n){
+        let count = n //Esta variable es privada
+
+        return {
+          increase: function(){
+            count++
+          },
+          getCount: function(){
+            return count
+          }
+        }
+      }
+
+      let counter = makeCounter(9);
+      console.log(counter.count); //Undefined: No está en el scope global
+      console.log(counter.getCount()); // 9
+
+    </script>
+  </body>
+</html>
